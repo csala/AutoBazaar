@@ -55,6 +55,7 @@ development_requires = [
     # Advanced testing
     'coverage>=4.5.1,<6',
     'tox>=2.9.1,<4',
+    'rundoc>=0.4.3,<0.5',
 ]
 
 setup(
@@ -94,6 +95,6 @@ setup(
     test_suite='tests',
     tests_require=tests_require,
     url='https://github.com/HDI-project/AutoBazaar',
-    version='0.2.1-dev',
+    version='0.2.1.dev0',
     zip_safe=False,
 )
