@@ -339,6 +339,8 @@ def _search(args):
     columns = REPORT_COLUMNS[1:]
     print(report.set_index('dataset').to_string(columns=columns))
 
+    return report.error.isnull().all()
+
 
 def _get_datasets(args):
     if args.all:
@@ -406,6 +408,8 @@ def _list(args):
         datasets[columns].to_csv(args.report, index=True)
     else:
         print(datasets.to_string(columns=columns, index=True))
+
+    return 1
 
 
 class ArgumentParser(argparse.ArgumentParser):
@@ -528,8 +532,9 @@ def main():
     logging_setup(args.verbose, args.logfile)
     gc.enable()
 
-    args.command(args)
+    return args.command(args)
 
 
 if __name__ == '__main__':
-    main()
+    result = main()
+    sys.exit(result)
