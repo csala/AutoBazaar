@@ -339,7 +339,7 @@ def _search(args):
     columns = REPORT_COLUMNS[1:]
     print(report.set_index('dataset').to_string(columns=columns))
 
-    return report.error.isnull().all()
+    return report.error.notnull().all()
 
 
 def _get_datasets(args):
