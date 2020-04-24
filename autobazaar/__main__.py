@@ -409,8 +409,6 @@ def _list(args):
     else:
         print(datasets.to_string(columns=columns, index=True))
 
-    return 1
-
 
 class ArgumentParser(argparse.ArgumentParser):
     def convert_arg_line_to_args(self, arg_line):
@@ -532,9 +530,8 @@ def main():
     logging_setup(args.verbose, args.logfile)
     gc.enable()
 
-    return args.command(args)
+    return int(bool(args.command(args)))
 
 
 if __name__ == '__main__':
-    result = main()
-    sys.exit(result)
+    sys.exit(main())
