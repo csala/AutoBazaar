@@ -143,12 +143,11 @@ following additional options:
   no spaces between the checkpoint times. For example, to store the best pipeline every 10 minutes
   until 30 minutes have passed, you would use the option `-c 600,1200,1800`.
 
-For example, to search process the `185_baseball` dataset during 30 seconds evaluating the
-best pipeline so far every 10 seconds but with a maximum of 10 tuning iterations, we would
-use the following command:
+For example, to process the `185_baseball` dataset during a maximum 60 seconds with a maximum of
+5 tuning iterations, we would use the following command:
 
 ```bash
-abz search 185_baseball -c10,20,30 -b10
+abz search 185_baseball -t60 -b5
 ```
 
 For further details about the available options, please execute `abz search --help` in your
@@ -174,7 +173,7 @@ dataset
 Alternatively, a `-r` option can be passed with the name of a CSV file, and the results will
 be stored there:
 
-```bash
+```
 abz search 185_baseball -c10,20,30 -b10 -r results.csv
 ```
 
